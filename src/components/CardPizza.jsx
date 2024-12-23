@@ -8,9 +8,9 @@ const formatoIngredientes = (ingredients) => {
 const CardPizza = ({img, name, ingredients, price}) => {
   return (
     <> 
-    <Card style={{ width: '25rem' }}>
+    <Card style={{ width: '25rem'}}>
     <Card.Img variant="top" src={img} />
-    <Card.Body>
+    <Card.Body className="mb-4">
       <Card.Title>Pizza {name}</Card.Title>
       <Card.Subtitle className="mb-2 text-muted text-center">Ingredientes</Card.Subtitle>
       <Card.Text>

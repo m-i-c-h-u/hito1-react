@@ -1,7 +1,5 @@
-import Container from 'react-bootstrap/Container'
-import Nav from 'react-bootstrap/Nav'
-import Navbar from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button'
+import React from 'react';
+import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 
 
 const Navbarra = () => {
@@ -10,7 +8,7 @@ const token = false
 
   return (
     <section>
-    <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg" className="bg-body-tertiary">
+    <Navbar bg="dark" variant="dark" collapseOnSelect expand="lg" className="bg-body-dark">
       <Container>
         <Navbar.Brand href="#home">Pizzería Mamma Mía</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
