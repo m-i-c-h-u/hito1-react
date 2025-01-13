@@ -3,7 +3,6 @@ import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 
 
 const Navbarra = () => {
-const total = 25000
 const token = false
 
   return (
@@ -19,7 +18,9 @@ const token = false
             <Nav.Link href="#Register"><Button variant="outline-light">{token? "🔒Logout":"🔐Register"}</Button></Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#total"><Button variant="outline-primary">🛒Total {total}</Button></Nav.Link>
+          <Nav.Link href="#Cart">
+                <Button variant="outline-warning">🛒 Ir al Carrito</Button>
+              </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
