@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const RegisterForm = () => {
   const [formData, setFormData] = useState({ email: '', password: '', confirmPassword: '' });
