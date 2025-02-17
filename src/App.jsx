@@ -1,41 +1,33 @@
-import { useState } from 'react'
+import React from 'react'
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import Navbarra  from './components/NavBar'
-//import Cart from './components/Cart'
-//import Home from './components/Home'
-//import RegisterForm from './components/Register'
-//import LoginPage from './components/Login'
-import Pizza from './components/Pizza'
+import Cart from './pages/Cart'
+import Home from './pages/Home'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Pizza from './pages/Pizza'
+import Profile from './pages/Profile'
+import NotFound from './pages/NotFound'
 import Footer from './components/Footer'
 
+
 function App() {
-  const [showRegister, setShowRegister] = useState(true);
 
   return (
-    <div>
+    <div className="App">
       <Navbarra />
-      {/*<Cart/>*/}
-       <div className="container mt-4">
-        {showRegister ? (
-          <div className= "registerform d-flex justify-content-center align-items-center flex-column">
-            {/*<RegisterForm />*/}
-            {/*<button className="sing-in j" onClick={() => setShowRegister(false)}>
-              ¿Ya tienes una cuenta? Inicia sesión aquí
-            </button>*/}
-          </div>
-        ) : (
-          <div className= "loginform d-flex justify-content-center align-items-center flex-column">
-            {/*<LoginPage />*/}
-            {/*<button className="sing-up" onClick={() => setShowRegister(true)}>
-              ¿No tienes una cuenta? Regístrate aquí
-            </button>*/}
-          </div>
-        )}
-      </div> 
-      {/*<Home />*/}
-      <Pizza />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/pizza/p001" element={<Pizza />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <Footer />
     </div>
   )

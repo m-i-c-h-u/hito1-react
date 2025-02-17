@@ -1,20 +1,19 @@
 import { useState } from 'react';
 
-const LoginPage = () => {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+const RegisterForm = () => {
+  const [formData, setFormData] = useState({ email: '', password: '', confirmPassword: '' });
   const [message, setMessage] = useState('');
-  
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });    
+    setFormData({ ...formData, [name]: value });
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const { email, password } = formData;
+    const { email, password, confirmPassword } = formData;
 
-    if (!email || !password) {
+    if (!email || !password || !confirmPassword) {
       setMessage('Todos los campos son obligatorios.');
       return;
     }
@@ -24,13 +23,20 @@ const LoginPage = () => {
       return;
     }
 
-    setMessage('Inicio de sesión exitoso.');
+    if (password !== confirmPassword) {
+      setMessage('La contraseña y la confirmación deben coincidir.');
+      return;
+    }
+
+    setMessage('Registro exitoso.');
+    setFormData({ email: '', password: '', confirmPassword: '' });
   };
 
   return (
-    <div className="login-container">
-      <h2>Iniciar Sesión</h2>
-      <form onSubmit={handleSubmit} className="login-form">
+  <body className="register-body">
+    <div className="register-container">
+      <h2>Registro</h2>
+      <form onSubmit={handleSubmit} className="register-form">
         <div className="form-group">
           <label>Email:</label>
           <input
@@ -53,13 +59,25 @@ const LoginPage = () => {
             placeholder="Introduce tu contraseña"
           />
         </div>
+        <div className="form-group">
+          <label>Confirmar Contraseña:</label>
+          <input
+            type="password"
+            name="confirmPassword"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+            className="form-control"
+            placeholder="Confirma tu contraseña"
+          />
+        </div>
         <button type="submit" className="btn btn-primary">
-          Iniciar Sesión
+          Registrarse
         </button>
       </form>
       {message && <p className="message">{message}</p>}
     </div>
+  </body>
   );
 };
 
-export default LoginPage;
+export default RegisterForm;

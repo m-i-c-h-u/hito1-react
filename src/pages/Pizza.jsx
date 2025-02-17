@@ -1,27 +1,27 @@
-import CardPizza from "./CardPizza"
-import Header from "./Header"
+import CardPizza from "../components/CardPizza.jsx"
+import Header from "../components/Header.jsx"
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import { pizzas } from "../assets/pizzas.js"
 import { useState, useEffect } from "react"
 
 const URL = "http://localhost:5000/api/pizzas"
 const Home = () => {
 
-  const [pizzas, setPizzas] = useState([])
+  const [pizza, setPizza] = useState([])
+
 
   useEffect(() => {
-    const fetchPizzas = async () => {
+    const fetchPizza = async () => {
       try {
         const response = await fetch(URL);
         const data = await response.json();
-        setPizzas(data);
+        setPizza(data);
       } catch (error) {
         console.log(error);
       }
     };
-    fetchPizzas();
+    fetchPizza();
   }, []);
 
   return (
@@ -29,7 +29,7 @@ const Home = () => {
       <Header />
       <Container className="mt-4">
         <Row className="g-4"> 
-          {pizzas.map((pizza) => (
+          {pizza.map((pizza) => (
             <Col key={pizza.id} xs={12} sm={6} md={4} lg={3}>
               <CardPizza 
               img={pizza.img} 

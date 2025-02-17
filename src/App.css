@@ -1,11 +1,30 @@
-
-*{
+/* Estilos generales */
+#root {
+  margin: 0 ;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  text-align: center;
+  background-color: rgb(255, 249, 199);
+  width: 100%; 
+  display: flex;
+  flex-direction: column; 
 }
 
+.App {
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  width: 100%; 
+  display: flex;
+  flex-direction: column; 
+  margin: 0%;
+  padding: 0%;
+}
+
+/* Estilos para el carrito */
+
 .cart-container {
+  max-width: 90%;
+  margin: 74px auto 20px auto;
   padding: 20px;
   background-color: #f4f4f4;
 }
@@ -52,8 +71,6 @@
   justify-content: center;
   gap: 10px;
 }
-
-
 
 .pizza-count {
   font-size: 1.2rem;
@@ -102,6 +119,7 @@
   background-color: #218838;
 }
 
+/* Estilos para el encabezado */
 
 .header{
   background-image:url(../src/assets/img/Header.jpg);
@@ -109,8 +127,9 @@
   background-repeat: no-repeat;
   background-position: center;
   height: 300px;
-  width: 100vw;
-  color: #fff;
+  width: 100%;
+  margin-top: 74px;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -118,19 +137,104 @@
   text-align: center;
 }
 
+/* Estilos para cards */
+
+.card-pizza-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-pizza {
+  background-color: #fff;
+  width: 100%;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-pizza .card-img-top {
+  border-radius: 10px;
+}
+
+.card-pizza-body {
+  margin-bottom: 20px;
+}
+
+.card-pizza-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-pizza-subtitle {
+  font-size: 1.1rem;
+  color: #6c757d;
+  text-align: center;
+}
+
+.card-pizza-price {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  color: #28a745;
+}
+
+.card-pizza ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.card-pizza ul li {
+  list-style: none;
+  margin-bottom: 5px;
+
+}
+
+.card-pizza-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.card-pizza-button {
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.card-pizza-button-outline {
+  border: 2px solid #6c757d;
+  color: #6c757d;
+}
+
+.card-pizza-button-dark {
+  background-color: #343a40;
+  color: white;
+}
+
+
+/* Estilos para formularios */
+
+.login-body, .register-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f4f4;
+}
+
 .register-container, .login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding: 20px;
+  padding: 25px;
+  width: 80%;
+  max-width: 400px;
   background-color: rgba(0, 0, 0, 0.852);
   color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  width: 400px;
+
 }
 
 .register-form, .login-form {
@@ -145,6 +249,7 @@
 }
 
 .register-form input, .login-form input {
+  text-align: center;
   margin-bottom: 20px;
   padding: 10px;
   border-radius: 5px;
@@ -170,13 +275,93 @@
   text-decoration: none;
 }
 
+/* Estilos para perfil */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 15em auto;
+  max-width: 400px;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.profile button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile button:hover {
+  background-color: #d63c3c;
+}
+
+/* Estilos NotFound */
+
+.not-found {
+  text-align: center;
+  padding: 50px;
+  font-family: Arial, sans-serif;
+}
+
+.not-found h1 {
+  font-size: 3rem;
+  color: #ff4d4d;
+}
+
+.error{
+  width: 20%;
+  height: 350px;
+  border-radius: 8px;
+}
+.not-found p {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.home-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 2rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.home-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Estilos para el pie de pagina */
+
 .footer{
   background-color: rgba(0, 0, 0, 0.852);
   color:#fff;
   text-align: center;
   height: 50px;
+  width: 100%;
+  margin-bottom: 0%;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0%;
 }

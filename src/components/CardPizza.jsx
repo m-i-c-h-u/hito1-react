@@ -1,15 +1,17 @@
 import React from 'react'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
+import '../App.css'
 
 
 const CardPizza = ({img, name, ingredients, price}) => {
   return (
-    <Card style={{ width: '25rem'}}>
+    <div className="card-pizza-container">
+    <Card className="card-pizza">
     <Card.Img variant="top" src={img} />
     <Card.Body className="mb-4">
       <Card.Title>Pizza {name}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted text-center">Ingredientes</Card.Subtitle>
+      <Card.Subtitle className="mb-2 text-muted">Ingredientes</Card.Subtitle>
       <Card.Text>
         <ul>
           {ingredients.map ((ingredient, index) => (
@@ -24,6 +26,7 @@ const CardPizza = ({img, name, ingredients, price}) => {
       </div>
     </Card.Body>
   </Card>
+  </div>
   )
 }
 
