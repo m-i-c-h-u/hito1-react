@@ -1,10 +1,12 @@
 import React from 'react'
+import { useCart } from "../context/CartContext";
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import '../App.css'
 
 
-const CardPizza = ({img, name, ingredients, price}) => {
+const CardPizza = ({img, name, ingredients, price, id}) => {
+  const { addToCart } = useCart();
   return (
     <div className="card-pizza-container">
     <Card className="card-pizza">
@@ -22,7 +24,7 @@ const CardPizza = ({img, name, ingredients, price}) => {
       <Card.Title className="text-center">Precio ${price}</Card.Title>
       <div className="d-flex justify-content-between mt-3">
       <Button variant="outline-dark">ver más 👀</Button>
-      <Button variant="dark"> 🛒 Añadir</Button>
+      <Button onClick={() => addToCart({ id, name, price, img })}> 🛒 Añadir</Button>
       </div>
     </Card.Body>
   </Card>

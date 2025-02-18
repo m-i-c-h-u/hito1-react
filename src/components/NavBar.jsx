@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useCart } from "../context/CartContext";
 import { Container, Nav, Navbar, Button } from 'react-bootstrap';
 
 const Navbarra = () => {
+  const { cart } = useCart();
+  const total = cart.reduce((acc, item) => acc + item.price * item.count, 0);
   const [token, setToken] = useState(null);
 
   useEffect(() => {
@@ -31,7 +34,7 @@ const Navbarra = () => {
               <Button variant="outline-light">🍕Home</Button>
             </Nav.Link>
 
-            {/* Redirige a /profile cuando hay un token */}
+            {/* btn redirige a /profile cuando hay un token */}
             <Nav.Link as={Link} to={token ? "/profile" : "/login"}>
               <Button variant="outline-light">
                 {token ? "🔓 Profile" : "🔐 Login"}
@@ -48,6 +51,7 @@ const Navbarra = () => {
             <Nav.Link as={Link} to="/cart">
               <Button variant="outline-warning">🛒 Ir al Carrito</Button>
             </Nav.Link>
+             <Button  variant="outline-warning">🛒 ${total.toLocaleString("es-CL")}</Button>
           </Nav>
         </Navbar.Collapse>
       </Container>
