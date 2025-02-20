@@ -7,27 +7,31 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (pizza) => {
     setCart((prevCart) => {
-      const existingItem = prevCart.find((item) => item.id === pizza.id);
+      const cartCopy = [...prevCart];
+      const existingItem = cartCopy.find((item) => item.id === pizza.id);
+  
       if (existingItem) {
-        return prevCart.map((item) =>
-          item.id === pizza.id ? { ...item, count: item.count + 1 } : item
-        );
+        existingItem.count += 1;
       } else {
-        return [...prevCart, { ...pizza, count: 1 }];
+        cartCopy.push({ ...pizza, count: 1 });
       }
+  
+      return cartCopy;
     });
   };
 
   const updateQuantity = (id, delta) => {
-    setCart((prevCart) =>
-      prevCart
+    setCart((prevCart) => {
+      const updatedCart = prevCart
         .map((item) =>
           item.id === id
-            ? { ...item, count: item.count + delta >= 0 ? item.count + delta : 0 }
+            ? { ...item, count: Math.max(item.count + delta, 0) }
             : item
         )
-        .filter((item) => item.count > 0)
-    );
+        .filter((item) => item.count > 0);
+  
+      return updatedCart;
+    });
   };
 
   const clearCart = () => {

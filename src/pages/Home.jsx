@@ -27,10 +27,11 @@ const Home = () => {
     <section>
       <Header />
       <Container className="mt-4">
-        <Row className="g-4"> 
+        <Row> 
           {pizza.map((pizza) => (
-            <Col key={pizza.id} xs={12} sm={6} md={4} lg={3}>
+            <Col key={pizza.id} xs={12} sm={6} md={4} lg={4}>
               <CardPizza 
+              id={pizza.id}
               img={pizza.img} 
               name={pizza.name} 
               ingredients={pizza.ingredients} 

@@ -1,47 +1,60 @@
-import CardPizza from "../components/CardPizza.jsx"
-import Header from "../components/Header.jsx"
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useCart } from "../context/CartContext";
+import "../App.css";
 
-const URL = "http://localhost:5000/api/pizzas"
-const Home = () => {
-
-  const [pizza, setPizza] = useState([])
-
+const Pizza = () => {
+  const { id } = useParams();
+  const [pizza, setPizza] = useState(null);
+  const [error, setError] = useState(null);
+  const { addToCart } = useCart();
+  const URL = `http://localhost:5000/api/pizzas/${id}`; 
 
   useEffect(() => {
     const fetchPizza = async () => {
       try {
         const response = await fetch(URL);
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
         const data = await response.json();
         setPizza(data);
-      } catch (error) {
-        console.log(error);
+        console.log(data);
+      } catch (err) {
+        setError(err.message);
+        console.error("Error fetching pizza:", err);
       }
     };
+
     fetchPizza();
-  }, []);
+  
+  }, [id]);
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
+
+  if (!pizza) {
+   
+    return <p>Cargando...</p>;
+  }
 
   return (
-    <section>
-      <Header />
-      <Container className="mt-4">
-        <Row className="g-4"> 
-          {pizza.map((pizza) => (
-            <Col key={pizza.id} xs={12} sm={6} md={4} lg={3}>
-              <CardPizza 
-              img={pizza.img} 
-              name={pizza.name} 
-              ingredients={pizza.ingredients} 
-              price={pizza.price} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </section>
-  )
-}
+    <div className="box">
+      {pizza.img && <img src={pizza.img} alt={pizza.name} />}
+      <h1>{pizza.name}</h1>
+      <p>{pizza.desc}</p>
+      <ul>
+        {pizza.ingredients?.map((ingredient) => (
+          <li key={ingredient}>{ingredient}</li>
+        ))}
+      </ul>
+      <h3>Precio: ${pizza.price.toLocaleString("es-CL")}</h3>
+      <button onClick={() => addToCart(pizza)}>
+        Añadir al carrito
+      </button>
+    </div>
+  );
+};
 
-export default Home
+export default Pizza;
