@@ -1,19 +1,26 @@
-import React from "react"
-import "../App.css"
+import React from "react";
+import { useUser } from "../context/UserContext";
+import { useNavigate } from "react-router-dom";
+import "../App.css";
 
 const ProfilePage = () => {
-  const email = "correo.electronico@gmail.com";
+  const { email, logout } = useUser();
+  const navigate = useNavigate();
+
   const handleLogout = () => {
-    console.log("Cerrar sesión");
+    logout();
+    navigate("/login");
   };
+
   return (
     <div className="profile">
       <h2>Perfil</h2>
-      <p>Email: {email}</p>
-      <button onClick={handleLogout}>
+      <p>Email: {email || "No disponible"}</p>
+      <button onClick={handleLogout} className="btn btn-danger">
         Cerrar sesión
       </button>
     </div>
   );
 };
+
 export default ProfilePage;
