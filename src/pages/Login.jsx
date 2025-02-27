@@ -44,6 +44,7 @@ const LoginPage = () => {
   
 
   return (
+    <div className="element-container">
     <div className="login-container">
       <h2>Iniciar Sesión</h2>
       <form onSubmit={handleSubmit} className="login-form">
@@ -58,6 +59,7 @@ const LoginPage = () => {
         <button type="submit" className="btn btn-primary">Iniciar Sesión</button>
       </form>
       {message && <p className="message">{message}</p>}
+    </div>
     </div>
   );
 };

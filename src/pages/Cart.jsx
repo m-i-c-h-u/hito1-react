@@ -48,6 +48,7 @@ const Cart = () => {
   };
 
   return (
+    <div className="element-container">
     <div className="cart-container">
       <h2>🛒 Carrito de Compras</h2>
 
@@ -97,10 +98,11 @@ const Cart = () => {
 
       <div className={`checkout-message ${messageType}`}>{message}</div>
     </div>
+    </div>
   );
 };
 
-export default Cart;
+export default Cart;
 
 
 

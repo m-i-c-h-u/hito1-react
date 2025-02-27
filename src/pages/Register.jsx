@@ -49,7 +49,7 @@ const RegisterForm = () => {
 
 
   return (
-    <body className="register-body">
+      <div className="element-container">
       <div className="register-container">
         <h2>Registro</h2>
         <form onSubmit={handleSubmit} className="register-form">
@@ -69,7 +69,7 @@ const RegisterForm = () => {
         </form>
         {message && <p className="message">{message}</p>}
       </div>
-    </body>
+      </div>
   );
 };
 

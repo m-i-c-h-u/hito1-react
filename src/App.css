@@ -1,35 +1,32 @@
-/* Estilos generales */
-#root {
-  margin: 0 ;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  background-color: rgb(255, 249, 199);
-  width: 100%; 
-  display: flex;
-  flex-direction: column; 
-}
-
-body, html {
-  height: 100%;
-  margin: 0;
-}
 
 .App {
-  text-align: center;
-  background-color: rgb(255, 255, 255);
   display: flex;
-  flex-direction: column; 
-  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 90vh;
+  margin-top: 74px;
+  background-color: #ffffff;
+}
+
+.element-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  min-height: 70vh;
+  margin-top: auto;
 }
 
 /* Estilos para el carrito */
 
 .cart-container {
-  max-width: 90%;
-  margin: auto;
+  width: 90%;
+  margin: 50px;
   padding: 20px;
-  background-color: #f4f4f4;
+  border-radius: 10px;
+  background-color: #f4f4f4e5;
 }
 
 .cart-item {
@@ -160,7 +157,7 @@ body, html {
   background-position: center;
   height: 300px;
   width: 100%;
-  margin-top: 900px;
+  margin-top: 20px;
   color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -187,6 +184,7 @@ body, html {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
+  margin: auto;
   justify-content: center;
 }
 
@@ -194,18 +192,17 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+
 }
 
 .card-pizza {
   width: 100%;
-  background-color: #fff;
   border-radius: 20px;
   overflow: hidden; 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease-in-out;
   text-align: center;
-  margin: 20px;
+  margin: 0 0 20px 0;
 }
 
 .card-img-top {
@@ -221,12 +218,12 @@ body, html {
 
 .card-pizza-body {
   padding: 30px;
+  background-color: #f4f4f4e5;
 }
 
 .card-pizza-title {
   font-size: 1.5rem;
   font-weight: bold;
-  padding: 10px;
 }
 
 .card-pizza-subtitle {
@@ -236,8 +233,8 @@ body, html {
 
 .card-pizza-ingredients {
   list-style-type: none;
-  padding: 25px;
   text-align: left;
+  font-size: small;
 }
 
 .card-pizza-ingredients li {
@@ -271,18 +268,17 @@ body, html {
 /* Estilos para info de pizzas */
 
 .box {
-  margin-top: 50px;
-  max-width: 500px;
-  margin: 100px auto;
-  padding: 20px;
-  background-color: #fff;
+  width: 650px;
+  padding: 30px;
+  background-color: #f4f4f4e5;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  margin: 30px;
 }
 
 .box img {
-  width: 100%;
+  width: 80%;
   border-radius: 10px;
   transition: transform 0.3s ease-in-out;
 }
@@ -292,32 +288,35 @@ body, html {
 }
 
 .box h1 {
+  text-transform: uppercase;
   font-size: 2rem;
   margin: 15px 0;
   color: #333;
 }
 
 .box p {
-  font-size: 1.2rem;
+  font-size: 18px;
   color: #555;
-  margin-bottom: 15px;
-  padding: 20px;
-}
-
-.box ul {
-  list-style: none;
-  margin-left: 20px;
-  padding: 0;
-  text-align: left;
-}
-
-.box ul li {
-  font-size: 1.1rem;
   margin-bottom: 5px;
 }
 
+.box ul {
+  background-color: #b9b9b949;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 40%;
+  list-style: none;
+  padding: 10px;
+}
+
+.box li {
+  text-transform: uppercase;
+  font-size: 15px;
+  text-align: center;
+}
+
 .box h3 {
-  font-size: 1.5rem;
+  font-size: 25px;
   color: #28a745;
   margin: 20px 0;
 }
@@ -340,6 +339,8 @@ body, html {
 
 /* Estilos para formularios */
 
+
+
 .register-container, .login-container {
   display: flex;
   flex-direction: column;
@@ -352,7 +353,7 @@ body, html {
   color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  margin: 20px auto 20px auto;
+  margin: 0 auto;
 }
 
 .register-form, .login-form {
@@ -482,4 +483,5 @@ p {
   justify-content: center;
   align-items: center;
   margin-top: auto;
+  margin-bottom: 0%;
 }
